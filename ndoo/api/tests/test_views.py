@@ -1,9 +1,53 @@
-from selenium import webdriver
+from django.test import TestCase, Client
 
-browser = webdriver.Chrome()
-browser.get('http://localhost:8000/')
 
-body = browser.find_element_by_tag_name('body')
-assert 'Django' in body.text
+class TestRouting(TestCase):
 
-browser.quit()
+    def setUp(self):
+        self.client_stub = Client()
+
+    def test_view_bucketlists_route(self):
+        response = self.client_stub.get(
+            '/api/v1/bucketlists/')
+        self.assertEquals(response.status_code, 200)
+
+    def test_create_bucketlist_route(self):
+        response = self.client_stub.post(
+            '/api/v1/bucketlists/')
+        self.assertEquals(
+            response.status_code, 201)
+
+    def test_update_bucketlist_route(self):
+        response = self.client_stub.put(
+            '/api/v1/bucketlists/')
+        self.assertEquals(
+            response.status_code, 200)
+
+    def test_delete_bucketlist_route(self):
+        response = self.client_stub.delete(
+            '/api/v1/bucketlists/')
+        self.assertEquals(
+            response.status_code, 200)
+
+    def test_view_bucketlistitems_route(self):
+        response = self.client_stub.get(
+            '/api/v1/bucketlists/1/items/')
+        self.assertEquals(response.status_code, 200)
+
+    def test_create_bucketlistitems_route(self):
+        response = self.client_stub.post(
+            '/api/v1/bucketlists/1/items/')
+        self.assertEquals(
+            response.status_code, 201)
+
+    def test_update_bucketlistitems_route(self):
+        response = self.client_stub.put(
+            '/api/v1/bucketlists/1/items/')
+        self.assertEquals(
+            response.status_code, 200)
+
+    def test_delete_bucketlistitems_route(self):
+        response = self.client_stub.delete(
+            '/api/v1/bucketlists/1/items/')
+        self.assertEquals(
+            response.status_code, 200)

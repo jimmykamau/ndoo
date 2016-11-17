@@ -4,13 +4,30 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class Base(models.Model):
-    pass
+class TimeStampMixin(models.Model):
+    date_created = models.DateTimeField(
+        auto_now_add=True)
+    date_modified = models.DateTimeField(
+        auto_now=True)
+
+    class Meta:
+        abstract = True
 
 
-class BucketList(Base):
-    pass
+class BucketList(TimeStampMixin):
+    name = models.CharField(max_length=100)
+    created_by = models.ForeignKey(
+        User, related_name='bucketlist')
+
+    def __str__(self):
+        return '{}'.format(self.name)
 
 
-class BucketListItem(Base):
-    pass
+class BucketListItem(TimeStampMixin):
+    name = models.CharField(max_length=100)
+    done = models.BooleanField(default=False)
+    bucketlist_id = models.ForeignKey(
+        BucketList, related_name='bucketlist_item')
+
+    def __str__(self):
+        return '{}'.format(self.name)

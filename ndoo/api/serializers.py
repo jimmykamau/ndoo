@@ -4,13 +4,17 @@ from bucketlist.models import BucketList, BucketListItem
 
 
 class BucketListSerializer(serializers.ModelSerializer):
+    items = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = BucketList
+        fields = '__all__'
 
 
 class BucketListItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = BucketListItem
+        fields = '__all__'
 
 
 class UserRegisterSerializer(serializers.ModelSerializer):

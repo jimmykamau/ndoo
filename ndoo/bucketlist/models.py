@@ -17,7 +17,7 @@ class TimeStampMixin(models.Model):
 class BucketList(TimeStampMixin):
     name = models.CharField(max_length=100)
     created_by = models.ForeignKey(
-        User, related_name='bucketlist')
+        User, related_name='bucketlists')
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -27,7 +27,7 @@ class BucketListItem(TimeStampMixin):
     name = models.CharField(max_length=100)
     done = models.BooleanField(default=False)
     bucketlist_id = models.ForeignKey(
-        BucketList, related_name='bucketlist_item')
+        BucketList, related_name='items')
 
     def __str__(self):
         return '{}'.format(self.name)

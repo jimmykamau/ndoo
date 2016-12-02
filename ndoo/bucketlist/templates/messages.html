@@ -1,0 +1,12 @@
+{% if messages %}
+    {% for message in messages %}
+        <script type="text/javascript">
+          UIkit.notify({
+              message : '{{ message }}',
+              timeout : 10000,
+              pos     : 'top-right',
+              status  : '{{ message.tags }}'
+          });
+        </script>
+    {% endfor %}
+{% endif %}

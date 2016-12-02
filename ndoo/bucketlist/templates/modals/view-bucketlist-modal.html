@@ -1,0 +1,47 @@
+{% if bucketlists %}
+{% for bucketlist in bucketlists %}
+<div id="modal-blank-{{bucketlist.pk}}" class="uk-modal">
+    <div class="uk-modal-dialog uk-modal-dialog-blank">
+        <button class="uk-modal-close uk-close" type="button"></button>
+        <div class="uk-grid uk-flex-middle" data-uk-grid-margin>
+            <div class="uk-width-medium-1-2 uk-height-viewport uk-cover-background">
+                <div style="padding: 50pt;">
+                    <h1>{{bucketlist.name}}</h1>
+                    <div class="uk-width-medium-1-1">
+                        <p>{{bucketlist.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-width-medium-1-2" id="bucketlist-items-list">
+                {% if bucketlist.items.all %}
+                    {% for item in bucketlist.items.all %}
+                        <div class="uk-width-medium-1-1" style="padding: 30pt;">
+                            <figure class="uk-overlay uk-overlay-hover">
+                                <div class="uk-panel uk-panel-box uk-panel-box-primary uk-panel-hover">
+                                    <div class="uk-panel-title">{{item.name}}</div>
+                                    <p>
+                                        {{item.description}}
+                                    </p>
+                                </div>
+                                <figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-middle uk-flex-center uk-text-center">
+                                    <div class="uk-button-group uk-animation-hover">
+                                       <a href="#edit-bucketlist-item-{{item.id}}-modal" class="uk-button uk-button-link uk-button-large" data-uk-modal><i class="icon ion-edit"></i></a>
+                                       <a href="#" class="uk-button uk-button-link uk-button-large" data-uk-modal><i class="icon ion-ios-trash" onclick="deleteBucketlistItem({{item.id}})"></i></a>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                            <form id="delete-bucketlist-item-{{item.id}}-form" enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="{{item.id}}">
+                            </form>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    This Ndoo doesn't contain any items
+                {% endif %}
+            </div>
+        </div>
+        <a href="#create-bucketlist-{{bucketlist.id}}-item-modal" data-uk-modal>Open</a>
+    </div>
+</div>
+{% endfor %}
+{% endif %}

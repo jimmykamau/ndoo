@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="{{ csrf_token }}" name="csrf-token" />
+    <title>Ndoo</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/uikit.almost-flat.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/components/notify.almost-flat.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/uikit.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/notify.min.js' %}"></script>
+
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    {% block body %}
+    {% endblock body %}
+
+    {% block footer %}
+    {% endblock footer %}
+    {% include 'messages.html' %}
+</body>
+</html>

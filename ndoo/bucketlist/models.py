@@ -9,6 +9,7 @@ class TimeStampMixin(models.Model):
         auto_now_add=True)
     date_modified = models.DateTimeField(
         auto_now=True)
+    description = models.TextField(blank=True)
 
     class Meta:
         abstract = True

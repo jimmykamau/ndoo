@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+{% if form.errors %}
+    {% for error in form.errors %}
+            <script type="text/javascript">
+              UIkit.notify({
+                  message : '{{ form.errors }}',
+                  timeout : 10000,
+                  pos     : 'top-right',
+                  status  : 'danger'
+              });
+            </script>
+    {% endfor %}
+{% endif %}
+<div class="uk-container">
+    <div class="uk-width-1-2 uk-margin-large-top uk-margin-large-bottom auth-form uk-container-center">
+        <h2>Register</h2>
+        <form class="uk-form uk-form-stacked" method="POST">
+            {% csrf_token %}
+            <fieldset data-uk-margin>
+                <legend></legend>
+                <div class="uk-margin-large">
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">Username&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-ios-help" data-uk-tooltip title="{{form.username.help_text}}"></i></label>
+                        <div class="uk-form-controls">
+                            {{form.username}}
+                        </div>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">Password</label>
+                        {{form.password1}}
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">Confirm Password&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon ion-ios-help" data-uk-tooltip title="{{form.password2.help_text}}"></i></label>
+                        {{form.password2}}
+                    </div>
+                </div>
+                <input type="hidden" name="id" id="id" value="{{bucketlist.id}}" readonly>
+                <legend></legend>
+                <div class="uk-form-row">
+                    <button class="uk-button uk-button-success" type="submit">Register</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="uk-text-center">Already have an account? <a href="/login">Sign in</a></div>
+</div>
+{% endblock %}
+

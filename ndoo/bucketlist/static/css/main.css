@@ -1,0 +1,65 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    color: rgba(170, 170, 170, 1);
+}
+
+.hover-buttons {
+    font-size: 25px;
+    color: #ffffff;
+}
+.hover-buttons:hover {
+    color: #fff;
+}
+
+.create-ndoo-button {
+    font-size: 50px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    color: #F26F21;
+}
+.create-ndoo-button:hover {
+    color: #A23B2A;
+}
+
+.bucketlist-panel-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+}
+
+.ndoo-panel {
+    border: 1px solid #FEC552;
+}
+
+.logout-button {
+    color: #F26F21;
+}
+
+.dashboard-bg {
+    background-repeat: no-repeat;;
+}
+
+.empty-ndoos {
+    border: 3px solid #FEC552;
+    padding: 20px;
+    border-radius: 10px;
+    -moz-box-shadow: 10px 10px 10px 10px #ccc;
+    -webkit-box-shadow: 10px 10px 10px 10px #ccc;
+    box-shadow: 10px 10px 10px 10px #ccc;
+}
+
+.empty-ndoos-button {
+    font-size: 50px;
+    color: #F26F21;
+}
+.empty-ndoos-button:hover {
+    color: #A23B2A;
+}
+
+.auth-form {
+    border: 2px solid #FEC552;
+    padding: 30px;
+    border-radius: 10px;
+}

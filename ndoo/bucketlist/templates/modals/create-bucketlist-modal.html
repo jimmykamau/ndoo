@@ -1,0 +1,31 @@
+<div id="create-bucketlist-modal" class="uk-modal">
+    <div class="uk-modal-dialog uk-text-center">
+        <a href="" class="uk-modal-close uk-close"></a>
+        <h1 class="bucketlist-panel-title">Create Ndoo</h1>
+        <div>
+            <form class="uk-form uk-form-stacked" method="POST" id="create-bucketlist-form" enctype="multipart/form-data">
+                <fieldset data-uk-margin>
+                    <legend></legend>
+                    <div class="uk-margin-large">
+                        <div class="uk-form-row">
+                            <label class="uk-form-label">Name</label>
+                            <div class="uk-form-controls">
+                                <input type="text" name="name" id="name"
+                                    placeholder="My Ndoo" class="uk-form-width-large">
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+                            <label class="uk-form-label">Description</label>
+                            <textarea name="description" id="description"
+                                class="uk-form-width-large" rows="5" placeholder="My ndoo description"></textarea>
+                        </div>
+                    </div>
+                    <legend></legend>
+                    <div class="uk-form-row">
+                        <button class="uk-button uk-button-success" type="submit" value="submit">Create</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

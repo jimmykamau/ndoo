@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/tooltip.almost-flat.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/components/sticky.almost-flat.min.css' %}">
+
+<script type="text/javascript" src="{% static 'js/components/grid.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/tooltip.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/sticky.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/parallax.min.js' %}"></script>
+{% endblock head %}
+
+{% block body %}
+{% include 'header.html' %}
+<div class="uk-container uk-container-center">
+    <div class="uk-width-1-1 uk-margin-large-top uk-margin-large-bottom">
+        {% if bucketlists %}
+            <div class="uk-grid-width-small-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-3" data-uk-grid="{gutter: 20}">
+            {% for bucketlist in bucketlists %}
+                <div>
+                    <figure class="uk-overlay uk-overlay-hover" style="min-width: 150pt;">
+                        <div class="uk-panel uk-panel-box uk-panel-box-secondary uk-panel-hover ndoo-panel">
+                            <div class="uk-panel-title bucketlist-panel-title">{{bucketlist.name|upper}}</div>
+                            <div class="uk-comment-meta"><b>Created:</b> {{bucketlist.date_created|date:"DATE_FORMAT"}} | <b>Updated:</b> {{bucketlist.date_modified|date:"DATE_FORMAT"}} | <b>Items:</b> {{bucketlist.items.count}}</div>
+                            <p>
+                                {{bucketlist.description|truncatechars:200}}
+                            </p>
+                        </div>
+                        <figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-middle uk-flex-center uk-text-center">
+                            <div class="uk-button-group uk-animation-hover">
+                                   <a class="hover-buttons uk-button uk-button-link uk-button-large" href="#modal-blank-{{bucketlist.pk}}" data-uk-modal data-uk-tooltip title="View"><i class="icon ion-eye"></i></a>
+                                   <a href="#edit-bucketlist-{{bucketlist.id}}-modal" class="hover-buttons uk-button uk-button-link uk-button-large" data-uk-modal data-uk-tooltip title="Edit"><i class="icon ion-edit"></i></a>
+                                   <a class="hover-buttons uk-button uk-button-link uk-button-large" href="#create-bucketlist-{{bucketlist.id}}-item-modal" data-uk-modal data-uk-tooltip title="Create Ndoo Item"><i class="icon ion-ios-plus"></i></a>
+                                   <a href="#" class="hover-buttons uk-button uk-button-link uk-button-large" data-uk-modal data-uk-tooltip title="Delete"><i class="icon ion-ios-trash" onclick="deleteBucketlist({{bucketlist.id}})"></i></a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <form id="delete-bucketlist-{{bucketlist.id}}-form" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="{{bucketlist.id}}">
+                    </form>
+                </div>
+            {% endfor %}
+            </div>
+        {% else %}
+            <div class="uk-width-1-2 uk-margin uk-container-center uk-text-center empty-ndoos">
+                <p><i class="icon ion-ios-download-outline" style="font-size: 200pt; color: #F26F21;"></i></p>
+                <div style="font-size: 20pt;"><b>You don't have any Ndoos</b></div>
+                <p style="font-size: 15pt;">Create one now</p>
+                <a class="empty-ndoos-button" href="#create-bucketlist-modal" data-uk-modal data-uk-tooltip title="Create Ndoo"><i class="icon ion-ios-plus"></i></a>
+            </div>
+        {% endif %}
+        <a class="create-ndoo-button uk-float-right" href="#create-bucketlist-modal" data-uk-modal data-uk-tooltip title="Create Ndoo"><i class="icon ion-ios-plus"></i></a>
+    </div>
+
+</div>
+{% endblock body %}
+
+{% block footer %}
+    {% include 'modals/create-bucketlist-modal.html' %}
+    {% include 'modals/view-bucketlist-modal.html' %}
+    {% include 'modals/edit-bucketlist-modal.html' %}
+    {% include 'modals/create-bucketlist-item-modal.html' %}
+    {% include 'modals/edit-bucketlist-item-modal.html' %}
+
+    <script type="text/javascript" src="{% static 'js/core/modal.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/create-bucketlist.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/edit-bucketlist.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/delete-bucketlist.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/create-bucketlist-item.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/edit-bucketlist-item.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app/delete-bucketlist-item.js' %}"></script>
+{% endblock footer %}

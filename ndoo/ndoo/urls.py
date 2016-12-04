@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 import api.urls
+import bucketlist.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/v1/', include(api.urls)),
     url(r'^api/v1/', include('rest_framework.urls')),
+    url(r'^', include(bucketlist.urls)),
     url(r'^', include('rest_framework.urls', namespace='rest_framework')),
 ]

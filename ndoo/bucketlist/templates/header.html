@@ -1,0 +1,11 @@
+{% load static %}
+<div class="uk-cover-background" style="height: 200pt; background-image: url({% static 'img/bg.jpg' %});">
+<div class="uk-container uk-container-center">
+    <div class="uk-width-1-1 uk-margin-top">
+        <div class="uk-float-right">
+            <div style="font-size: 30px;"><a href="/logout" data-uk-tooltip title="Logout" class="uk-margin-left"><i class="logout-button icon ion-log-out"></i></a></div>
+        </div>
+    </div>
+</div>
+<div class="uk-text-center uk-width-1-1 uk-margin-large-top" style="font-size: 30pt; color: #fff; font-family: 'Quicksand', sans-serif;">Hello {{user|upper}}</div>
+</div>

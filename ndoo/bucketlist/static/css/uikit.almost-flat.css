@@ -6380,7 +6380,7 @@ a.uk-thumbnail:focus {
 /* Modifier `uk-overlay-background`
  ========================================================================== */
 .uk-overlay-background {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 /* Modifier `uk-overlay-image`
  ========================================================================== */

@@ -1,0 +1,40 @@
+{% if bucketlists %}
+{% for bucketlist in bucketlists %}
+<div id="create-bucketlist-{{bucketlist.id}}-item-modal" class="uk-modal">
+    <div class="uk-modal-dialog uk-text-center">
+        <a href="" class="uk-modal-close uk-close"></a>
+        <h1 class="bucketlist-panel-title">Create Ndoo Item</h1>
+        <div>
+            <form class="uk-form uk-form-stacked" method="POST" id="create-bucketlist-{{bucketlist.id}}-item-form" enctype="multipart/form-data" name="create-bucketlist-item-form">
+                {% csrf_token %}
+                <input type="hidden" name="bucketlist_id" id="bucketlist_id" value="{{bucketlist.id}}" readonly>
+                <fieldset data-uk-margin>
+                    <legend></legend>
+                    <div class="uk-margin-large">
+                        <div class="uk-form-row">
+                            <label class="uk-form-label">Name</label>
+                            <div class="uk-form-controls">
+                                <input type="text" name="name" id="name"
+                                    placeholder="My Ndoo item" class="uk-form-width-large">
+                            </div>
+                        </div>
+                        <div class="uk-form-row">
+                            <label class="uk-form-label">Description</label>
+                            <textarea name="description" id="description"
+                                class="uk-form-width-large" rows="5" placeholder="My ndoo item description"></textarea>
+                        </div>
+                        <div class="uk-form-row">
+                            <input type="checkbox" name="done" id="done"> Done</label>
+                        </div>
+                    </div>
+                    <legend></legend>
+                    <div class="uk-form-row">
+                        <a href="#" class="uk-button uk-button-success" onclick="createBucketlistItem({{bucketlist.id}})">Create Item</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}

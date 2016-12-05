@@ -1,0 +1,14 @@
+machine:
+  python:
+    version: 2.7.12
+  environment:
+    DJANGO_SETTINGS_MODULE: ndoo.settings.testing
+dependencies:
+  pre:
+    - pip install --upgrade pip
+    - pip install --upgrade virtualenv
+    - pip install -r requirements.txt
+    - pip install coveralls
+test:
+  override:
+    - python ndoo/manage.py test

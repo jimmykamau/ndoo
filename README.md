@@ -1,8 +1,9 @@
 [![Build Status](https://travis-ci.org/andela-jkamau/ndoo.svg?branch=development)](https://travis-ci.org/andela-jkamau/ndoo)
-[![Coverage Status](https://coveralls.io/repos/github/andela-jkamau/ndoo/badge.svg?branch=master)](https://coveralls.io/github/andela-jkamau/ndoo?branch=master)
+[![CircleCI](https://circleci.com/gh/andela-jkamau/ndoo/tree/development.svg?style=shield)](https://circleci.com/gh/andela-jkamau/ndoo/tree/development)
+[![Coverage Status](https://coveralls.io/repos/github/andela-jkamau/ndoo/badge.svg?branch=development)](https://coveralls.io/github/andela-jkamau/ndoo?branch=development)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ad46f1a131094f7dad0d30d10b2a1404)](https://www.codacy.com/app/jimmy-kamau/ndoo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=andela-jkamau/ndoo&amp;utm_campaign=Badge_Grade)
-[![Code Health](https://landscape.io/github/andela-jkamau/ndoo/master/landscape.svg?style=flat)](https://landscape.io/github/andela-jkamau/ndoo/master)
-![alt text](https://img.shields.io/badge/python-2.7-blue.svg)
+[![Code Health](https://landscape.io/github/andela-jkamau/ndoo/development/landscape.svg?style=flat)](https://landscape.io/github/andela-jkamau/ndoo/development)
+![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 
 
